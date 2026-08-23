@@ -1,0 +1,56 @@
+{
+  "name": "desktop-agent",
+  "version": "1.0.0",
+  "description": "A desktop app that lets an LLM use your computer via function calling.",
+  "type": "module",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "server": "node index.js",
+    "dist": "electron-builder --win portable"
+  },
+  "dependencies": {
+    "adm-zip": "^0.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "electron": "^43.4.1",
+    "electron-builder": "^26.15.3"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "build": {
+    "appId": "com.desktop.agent",
+    "productName": "桌面智能助手",
+    "asar": true,
+    "electronVersion": "43.4.1",
+    "files": [
+      "index.js",
+      "main.js",
+      "lib/**/*",
+      "public/**/*",
+      "config.json",
+      "package.json"
+    ],
+    "directories": {
+      "output": "release"
+    },
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false
+    },
+    "portable": {
+      "artifactName": "桌面智能助手.exe"
+    },
+    "compression": "store"
+  }
+}

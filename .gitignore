@@ -1,0 +1,12 @@
+node_modules/
+.env
+agent-home/
+*.log
+.DS_Store
+# 敏感配置(含 API Key,不提交)
+config.json
+# Electron 构建产物
+release/
+dist/
+# 下载的临时文档包
+_gd_*.zip
